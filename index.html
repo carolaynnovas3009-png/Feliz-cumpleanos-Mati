@@ -353,6 +353,47 @@
         }
 
 
+
+        /* Visor de fotos al hacer clic */
+
+        #visorImagen {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.88);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        #imagenGrande {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 2px solid #8EABC4;
+            box-shadow: 0 0 30px rgba(82, 127, 168, 0.7);
+            animation: aparecer 0.25s ease;
+        }
+
+        #cerrarImagen {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: #527FA8;
+            color: #FFF9EE;
+            border: 2px solid #8EABC4;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(82, 127, 168, 0.6);
+        }
+
+
     </style>
 
 </head>
@@ -467,57 +508,56 @@
     <div class="seccion">
 
 
-        <h2>📸 Galería del jugador</h2>
-
-
-        <p class="centro">
-
-            Algunas pruebas de que este jugador realmente existe ajajaj.
-
-        </p>
-
+       <h2>📸 Fotos excesivas</h2> 
+ 
+ 
+        <p class="centro"> 
+ 
+            solo para ti mi mati. 
+ 
+        </p> 
 
         <div class="fotos">
 
 
             <div class="foto">
 
-                <img src="foto1.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/PG17cz3g/IMG-20241217-084738.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
 
             <div class="foto">
 
-                <img src="foto2.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/zVLBdqG3/Screenshot-2025-09-11-20-19-35-808-com-whatsapp-edit.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
 
             <div class="foto">
 
-                <img src="foto3.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/vxjBvmJ7/Screenshot-2025-05-25-10-28-54-867-com-google-android-apps-photos-edit.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
 
             <div class="foto">
 
-                <img src="foto4.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/Qv9FdDMc/IMG-20250605-102125.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
 
             <div class="foto">
 
-                <img src="foto5.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/JjxYhfx0/1746983920045.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
 
             <div class="foto">
 
-                <img src="foto6.jpg" alt="Foto de Mati">
+                <img src="https://i.ibb.co/Kcd5TTzY/157c78a1-858a-43fc-9321-bdf302a90d34.jpg" alt="Foto de Mati" onclick="abrirImagen(this.src)">
 
             </div>
 
@@ -753,11 +793,35 @@ function mostrarCarta() {
     escribirParrafo();
 }
 
+
+function abrirImagen(url) {
+    let visor = document.getElementById("visorImagen");
+    let imagen = document.getElementById("imagenGrande");
+
+    imagen.src = url;
+    visor.style.display = "flex";
+}
+
+function cerrarImagen(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document.getElementById("visorImagen").style.display = "none";
+}
+
 function mostrarSorpresa() {
     document.getElementById("sorpresa").style.display = "block";
 }
 
 </script>
+
+
+<!-- Visor para abrir las fotos en grande -->
+<div id="visorImagen" onclick="cerrarImagen()">
+    <button id="cerrarImagen" onclick="cerrarImagen(event)">×</button>
+    <img id="imagenGrande" src="" alt="Foto ampliada" onclick="event.stopPropagation()">
+</div>
 
 
 </body>
