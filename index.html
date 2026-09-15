@@ -1,1 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feliz cumpleaños Matiii</title>
+
+
+    <style>
+
+
+
+        body {
+
+            background-color: #181818;
+
+            color: #FFF9EE;
+
+            font-family: Georgia, serif;
+
+            margin: 0;
+
+            padding: 20px;
+
+        }
+
+
+        .cuadro {
+
+            background-color: #242424;
+
+            border: 2px solid #527FA8;
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            max-width: 750px;
+
+            margin: auto;
+
+            box-shadow: 0 0 25px rgba(82, 127, 168, 0.25);
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 40px;
+
+            color: #FFF9EE;
+
+        }
+
+
+        h2 {
+
+            text-align: center;
+
+            font-size: 28px;
+
+            color: #8EABC4;
+
+        }
+
+
+        p {
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .centro {
+
+            text-align: center;
+
+        }
+
+
+        #inicio {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: #181818;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 1000;
+
+            transition: opacity 1s ease;
+
+        }
+
+
+        .pantalla-inicio {
+
+            text-align: center;
+
+            padding: 30px;
+
+        }
+
+
+        .pantalla-inicio h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .pantalla-inicio p {
+
+            color: #8EABC4;
+
+        }
+
+
+
+     
+
+        .boton {
+
+            background-color: #527FA8;
+
+            color: #FFF9EE;
+
+            border: 2px solid #8EABC4;
+
+            border-radius: 10px;
+
+            padding: 12px 25px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            box-shadow: 0 0 10px rgba(82, 127, 168, 0.5);
+
+            transition: 0.2s;
+
+        }
+
+
+        .boton:hover {
+
+            box-shadow: 0 0 20px rgba(82, 127, 168, 0.8);
+
+            transform: scale(1.03);
+
+        }
+
+
+        .boton:active {
+
+            box-shadow: 0 0 30px rgba(82, 127, 168, 1);
+
+            transform: scale(0.95);
+
+        }
+
+
+
+
+        .seccion {
+
+            background-color: #1E1E1E;
+
+            border: 2px solid #3D5265;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            margin-top: 25px;
+
+        }
+
+
+
+
+        .fotos {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 15px;
+
+        }
+
+
+        .foto {
+
+            width: 190px;
+
+            height: 190px;
+
+            background-color: #303030;
+
+            border: 2px solid #527FA8;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+
+        }
+
+
+        .foto:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 0 18px rgba(82, 127, 168, 0.6);
+
+        }
+
+
+        .foto img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+
+
+        .carta {
+
+            display: none;
+
+            background-color: #F2E8D5;
+
+            color: #181818;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 20px;
+
+            box-shadow: 0 0 20px rgba(242, 232, 213, 0.2);
+
+            animation: aparecer 1s ease;
+
+        }
+
+
+        .carta p {
+
+            color: #181818;
+
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+
+     
+
+        .logro {
+
+            background-color: #252525;
+
+            border: 1px solid #527FA8;
+
+            border-radius: 10px;
+
+            padding: 12px;
+
+            margin-top: 10px;
+
+        }
+
+
+
+       
+
+        .sorpresa {
+
+            display: none;
+
+            background-color: #F2E8D5;
+
+            color: #181818;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            animation: aparecer 1s ease;
+
+        }
+
+
+        .sorpresa p {
+
+            color: #181818;
+
+        }
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<div id="inicio">
+
+
+    <div class="pantalla-inicio">
+
+
+        <h1>LEVEL 16</h1>
+
+
+        <p>
+            Una nueva aventura está a punto de comenzar...
+        </p>
+
+
+        <br>
+
+
+        <button class="boton" onclick="comenzar()">
+
+            ▶ COMENZAR
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<audio id="musica" loop>
+
+    <source src="happy-birthday-piano-508359.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+
+<div class="cuadro">
+
+
+    <h1>🎂 ¡Feliz cumpleaños, Matiii!</h1>
+
+
+    <h2>⭐ Nivel 16 desbloqueado ⭐</h2>
+
+
+    <p class="centro">
+
+        Has llegado a un nuevo nivel.
+
+        <br>
+
+        Ahora comienza una nueva aventura.
+
+    </p>
+
+
+
+    <!-- =========================
+         PERFIL
+    ========================= -->
+
+
+    <div class="seccion">
+
+
+        <h2>PERFIL DEL JUGADOR</h2>
+
+
+        <div class="centro">
+
+
+            <p>
+
+                <strong>Jugador:</strong> Mati
+
+                <br>
+
+                <strong>Nivel:</strong> 16
+
+                <br>
+
+                <strong>Estado:</strong> ¡Nivel desbloqueado!
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="seccion">
+
+
+        <h2>📸 Galería del jugador</h2>
+
+
+        <p class="centro">
+
+            Algunas pruebas de que este jugador realmente existe ajajaj.
+
+        </p>
+
+
+        <div class="fotos">
+
+
+            <div class="foto">
+
+                <img src="foto1.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+            <div class="foto">
+
+                <img src="foto2.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+            <div class="foto">
+
+                <img src="foto3.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+            <div class="foto">
+
+                <img src="foto4.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+            <div class="foto">
+
+                <img src="foto5.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+            <div class="foto">
+
+                <img src="foto6.jpg" alt="Foto de Mati">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="seccion">
+
+
+        <h2>🏆 Logros desbloqueados</h2>
+
+
+        <div class="logro">
+
+            🎮 <strong>Jugador veterano</strong>
+
+            <br>
+
+            Sobreviviste exitosamente 16 años.
+
+        </div>
+
+
+        <div class="logro">
+
+            ⭐ <strong>Nivel 16</strong>
+
+            <br>
+
+            Has alcanzado un nuevo nivel.
+
+        </div>
+
+
+        <div class="logro">
+
+            🎂 <strong>Experiencia acumulada</strong>
+
+            <br>
+
+            +1 año desbloqueado.
+
+        </div>
+
+
+        <div class="logro">
+
+            🔓 <strong>Nuevas responsabilidades</strong>
+
+            <br>
+
+            Este logro se desbloqueó automáticamente.
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CARTA
+    ========================= -->
+
+
+    <div class="seccion">
+
+
+        <h2>💌 Mensaje desbloqueado</h2>
+
+
+        <p class="centro">
+
+            Has recibido un mensaje especial.
+
+        </p>
+
+
+        <div class="centro">
+
+
+            <button class="boton" onclick="mostrarCarta()">
+
+                ✉️ Abrir mensaje
+
+            </button>
+
+
+        </div>
+
+
+        <div id="carta" class="carta">
+
+
+            <div id="textoCarta"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="seccion">
+
+
+        <h2>🎁 Misión final</h2>
+
+
+        <p class="centro">
+
+            Has llegado al final...
+
+            <br>
+
+            Pero todavía queda una última recompensa.
+
+        </p>
+
+
+        <div class="centro">
+
+
+            <button class="boton" onclick="mostrarSorpresa()">
+
+                🎁 Reclamar recompensa
+
+            </button>
+
+
+        </div>
+
+
+        <div id="sorpresa" class="sorpresa">
+
+
+            <h2>🏆 ¡MISIÓN COMPLETADA!</h2>
+
+
+            <p>
+
+                Felicidades por alcanzar el nivel 16.
+
+                <br><br>
+
+                Que este nuevo año venga lleno de buenos momentos,
+
+                nuevas aventuras y muchas cosas increíbles.
+
+                <br><br>
+
+                🎮 ¡Feliz cumpleaños, Matiii! 🎂
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+
+<script>
+
+function comenzar() {
+    let inicio = document.getElementById("inicio");
+    let musica = document.getElementById("musica");
+
+    musica.play();
+
+    inicio.style.opacity = "0";
+
+    setTimeout(function() {
+        inicio.style.display = "none";
+    }, 1000);
+}
+
+function mostrarCarta() {
+    let carta = document.getElementById("carta");
+    let texto = document.getElementById("textoCarta");
+
+    carta.style.display = "block";
+    texto.innerHTML = "";
+
+    let mensajes = [
+        "Feliz cumpleaños, mi niño. ❤️ Gracias por estar ahí sin importar qué, te agradezco muchísimo que seas parte de mi vida y le agradezco a Dios que te hayas cruzado en mi camino.",
+        "Espero poder seguir a tu lado muchísimos años más y seguir compartiendo momentos juntos. Sé que ya casi no hablamos, que estamos un poco distantes y eso me pone algo triste, JAJAJA, pero aun así sabes que te quiero muchísimo y que eres una persona muy importante para mí.",
+        "A veces las cosas cambian y las personas toman caminos diferentes, pero eso no significa que el cariño desaparezca. Quiero que sepas que, aunque no hablemos como antes, siempre voy a guardar con mucho cariño todos los momentos que hemos compartido y espero que podamos seguir creando muchos más.",
+        "Gracias por cada conversación, cada risa, cada momento y simplemente por haber estado en mi vida. De verdad espero que este nuevo año venga con muchas cosas buenas para ti, que puedas cumplir todo lo que te propongas y que nunca te falten motivos para sonreír.",
+        "En serio, gracias por todo. Te quiero muchísimo y espero que hoy la pases súper bien, que disfrutes tu día y que te consientan mucho.",
+        "Felices 16, mi rey. 👑❤️"
+    ];
+
+    let parrafoActual = 0;
+
+    function escribirParrafo() {
+        if (parrafoActual >= mensajes.length) return;
+
+        let elemento = document.createElement("p");
+        texto.appendChild(elemento);
+
+        let mensaje = mensajes[parrafoActual];
+        let posicion = 0;
+
+        function escribir() {
+            if (posicion < mensaje.length) {
+                elemento.textContent += mensaje.charAt(posicion);
+                posicion++;
+                setTimeout(escribir, 35);
+            } else {
+                parrafoActual++;
+                setTimeout(escribirParrafo, 500);
+            }
+        }
+
+        escribir();
+    }
+
+    escribirParrafo();
+}
+
+function mostrarSorpresa() {
+    document.getElementById("sorpresa").style.display = "block";
+}
+
+</script>
+
+
+</body>
+
+</html>
